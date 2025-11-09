@@ -18,7 +18,7 @@
 
 | Stage | Accuracy | GPUs | Time | Batch Size | Optimizer |
 |-------|----------|------|------|-----------|-----------|
-| **Scratch Training** | 74.46% | 3 × L40 | 16h | 640 | SGD + OneCycleLR |
+| **Scratch Training** | 75.34% | 3 × L40 | 16h | 640 | SGD + OneCycleLR |
 | **Fine-tuning** | **76.88%** | 3 × L40 | 6h | 512 | SGD + Cosine Decay |
 | **Total** | **+1.54%** | - | **22h** | - | - |
 
@@ -63,7 +63,7 @@ Nesterov: True
 │
 ├─ Linear Scaling Rule (Conservative)
 │  └─ For batch_size=640, 3 GPUs
-│  └─ Scaled LR: 0.06 × (1,920 / 512) = 0.2
+│  └─ Scaled LR: 0.06 × (1,920 / 512) = 0.225
 │  └─ Final Max LR: 0.18 (slightly conservative)
 │
 └─ OneCycleLR Schedule
