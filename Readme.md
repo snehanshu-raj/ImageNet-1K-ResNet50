@@ -207,6 +207,9 @@ Where: T = 50 epochs
 ### Learning Rate Schedules:
 ![LR Schedules](assets/plots/learning_rate_schedules.png)
 
+### Accuracy and Losses Combined (Scratch + Fine-Tuning Stage):
+![LR Schedules](assets/plots/train_vs_val_combined.png)
+
 ## 📂 **Repository Structure**
 
 ```
