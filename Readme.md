@@ -240,35 +240,6 @@ resnet50-imagenet-1k/
 ├── Readme.md
 ```
 
-### **Training Progression (Every 5 Epochs)**
-
-| Epoch | Train Accuracy | Train Loss | Val Accuracy | Val Loss | Learning Rate | Status |
-|-------|----------------|-----------|--------------|----------|---------------|--------|
-| 0 | 0.19% | 6.8935 | 0.90% | 6.6862 | 0.000600 |  Best |
-| 5 | 4.08% | 5.9899 | 14.04% | 4.9614 | 0.030000 |  Best |
-| 10 | 12.24% | 5.1556 | 33.47% | 3.7749 | 0.060000 |  Best |
-| 15 | 18.86% | 4.6613 | 42.12% | 3.3710 | 0.090000 |  Best |
-| 20 | 22.66% | 4.3839 | 47.34% | 3.0856 | 0.120000 |  Best |
-| 25 | 24.30% | 4.2332 | 51.17% | 3.0256 | 0.150000 | - |
-| 30 | 26.79% | 4.0807 | 54.02% | 2.8905 | 0.180000 | Peak LR |
-| 35 | 28.12% | 4.0220 | 55.61% | 2.7453 | 0.163782 | - |
-| 40 | 28.44% | 3.9266 | 58.43% | 2.6427 | 0.134164 |  Best |
-| 45 | 29.75% | 3.9013 | 58.68% | 2.6108 | 0.097553 | - |
-| 50 | 30.32% | 3.8171 | 61.13% | 2.5427 | 0.066180 | - |
-| 55 | 31.19% | 3.7807 | 61.82% | 2.4726 | 0.042632 | - |
-| 60 | 31.63% | 3.7328 | 61.08% | 2.5150 | 0.026126 | - |
-| 65 | 31.93% | 3.7010 | 64.43% | 2.3574 | 0.015287 | - |
-| 70 | 32.96% | 3.6279 | 65.44% | 2.3578 | 0.008458 | - |
-| 75 | 34.11% | 3.5489 | 66.74% | 2.2620 | 0.004423 | - |
-| 80 | 35.57% | 3.5217 | 68.94% | 2.2071 | 0.002148 |  Best |
-| 85 | 35.79% | 3.3925 | 71.01% | 2.1193 | 0.000936 |  Best |
-| 90 | 38.62% | 3.2967 | 73.36% | 2.0181 | 0.000363 |  Best |
-| 95 | 40.43% | 3.1986 | 74.73% | 2.0041 | 0.000118 |  Best |
-| 99 | 40.83% | 3.1879 | 75.26% | 1.9365 | 0.000011 | Final |
-| **99** | **41.00%** | **3.1737** | **75.34%** | **1.9278** | **0.000036** | **Best** |
-
----
-
 # **Label Quality Analysis: Understanding ImageNet's Limitations**
 
 ## **TL;DR**
@@ -351,7 +322,7 @@ Our **Top-5 accuracy of 92.54%** provides additional evidence that the model has
 
 ## **Conclusion**
 
-While our model reports **75.34% Top-1 accuracy** on standard ImageNet validation, this metric **underestimates true performance** by approximately 5-7 percentage points due to well-documented label quality issues in the benchmark dataset.
+While our model reports **75.34% Top-1 accuracy** (when trained from scratch) and **76.88 Top-1 accuracy** on further fine tuning on standard ImageNet validation, this metric **underestimates true performance** by approximately 5-7 percentage points due to well-documented label quality issues in the benchmark dataset.
 
 Our analysis, supported by academic research and manual inspection, suggests the model's **true accuracy is closer to 81-82%**. This aligns with our high Top-5 accuracy (92.54%) and qualitative performance on real-world images.
 
