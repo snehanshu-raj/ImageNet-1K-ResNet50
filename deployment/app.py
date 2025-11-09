@@ -55,7 +55,7 @@ def load_model(checkpoint_path='model.pth', device='cpu'):
     
     print(f"Model loaded.")
     print(f"   Best training accuracy: {best_acc}%")
-    print(f"   Trained for: 90 (scratch) + {epoch} (fine-tuned) epochs")
+    print(f"   Trained for: 100 (scratch) + {epoch} (fine-tuned) epochs")
     
     return model, best_acc, epoch
 
@@ -119,7 +119,7 @@ with gr.Blocks(css=custom_css, theme=gr.themes.Soft()) as demo:
     
     gr.Markdown(
         f"""
-        # ImageNet ResNet-50 Classifier
+        # ImageNet-1K ResNet-50 Classifier (76.88 Top-1 Accuracy)
         
         Upload an image to classify it into one of 1000 ImageNet categories.
         
@@ -128,8 +128,8 @@ with gr.Blocks(css=custom_css, theme=gr.themes.Soft()) as demo:
         - **Training**: From scratch on ImageNet-1K (1.28M images)
         - **Best Accuracy**: {acc_display}% Top-1
         - **Augmentations**: RandomResizedCrop, ColorJitter, AutoAugment, Mixup, CutMix, Random Erasing
-        - **Training Setup**: 3 GPUs, batch size 2,688, OneCycleLR scheduler
-        - **Fine-Tuning Setup**: 2 GPUs, batch size 1280, Cosine Decay
+        - **Training Setup**: 3 GPUs, batch size 1,920, OneCycleLR scheduler
+        - **Fine-Tuning Setup**: 3 GPUs, batch size 1,536, Cosine Decay
         
         *Uses exact label mapping from Hugging Face ImageNet-1K dataset.*
         """
@@ -168,10 +168,10 @@ with gr.Blocks(css=custom_css, theme=gr.themes.Soft()) as demo:
                 
                 **Training Configuration:**
                 - Optimizer: SGD with Nesterov momentum (0.9)
-                - Learning Rate: OneCycleLR (max: 0.17, warmup: 12%)
+                - Learning Rate: OneCycleLR (max: 0.18, warmup: 30%)
                 - Weight Decay: 1e-4
                 - Label Smoothing: 0.5
-                - Batch Size: 2,688 total (896 per GPU × 3 GPUs)
+                - Batch Size: 1,920 total (640 per GPU × 3 GPUs)
                 
                 **Inference Pipeline:**
                 1. Resize to 256×256
